@@ -33,6 +33,7 @@ test('Assert the deposit can be opened', async ({ page }) => {
   await accountPage.fillAmountInputField(amount);
   await accountPage.clickDepositFormButton();
   await accountPage.assertDepositSuccessfulMessageIsVisible();
+  await accountPage.assertBalanceContainsText(amount);
   await accountPage.clickTransactionsButton();
   await transactionsPage.assertHeaderIsVisible();
   await transactionsPage.reload();
